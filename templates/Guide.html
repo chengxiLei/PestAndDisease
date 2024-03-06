@@ -1,0 +1,92 @@
+{% extends "navbar.html" %}
+
+{% block content %}
+<main style="background-color: #e6f2f5;">
+
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Album example</h1>
+                <p class="lead text-muted">Something short and leading about the collection below—its contents, the
+                    creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it
+                    entirely.</p>
+                <!-- <p>
+                    <a href="#" class="btn btn-primary my-2">Main call to action</a>
+                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+                </p> -->
+            </div>
+        </div>
+    </section>
+
+    <div class="album py-5 " style="background-color: #f4f9e9;">
+        <div class="container">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for guide in guideArray %}
+
+
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="../static/img/{{guide.PrimaryImage}}" class="img-fluid" alt="..."
+                            style="height: 250px;" onclick="GotoDetail('{{guide.FreshwaterId}}')">
+                        <div class="card-body">
+                            <p class="card-text" id="titleForCommonName'{{loop.index0}}'">asd</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary"
+                                        onclick="GotoDetail('{{guide.FreshwaterId}}')">View</button>
+                                    {% if Authority == 0 or Authority == 1 %}
+                                    <button type="button" class="btn btn-sm btn-outline-secondary"
+                                        onclick="GotoEdit('{{guide.FreshwaterId}}')">Edit</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary"
+                                        onclick="callDeleteModal('{{guide.FreshwaterId}}')">Delete</button>
+                                    {% else %}
+                                    {% endif %}
+                                </div>
+                                <small class="text-muted">Present in NZ: {{guide.PresentInNZ}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+                {% if Authority == 0 or Authority == 1 %}
+                <div class="col text-center">
+                    <nav class="blog-pagination" aria-label="Pagination" style="height: 100%;">
+                        <button class="btn btn-primary rounded-pill" href="/" style="position: relative;top: 50%;"
+                            id="addMore" onclick="AddMoreGuide()">Add More Items</button>
+                    </nav>
+                </div>
+                {% else %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div id="dataTrans" data-guidearray='{{ guideArray }}'></div>
+
+</main>
+<!-- Modal -->
+<div class="modal fade" id="deleteGuideModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete Guide</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure to delete this guide?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" onclick="deleteGuide()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="../static/js/guide.js"></script>
+{% endblock %}

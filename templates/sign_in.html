@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>FRESHWATER PEST AND DISEASE BIOSECURITY GUIDE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <!-- svg -->
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg-leafs">
+    <defs>
+      <filter id="a" x="0" y="11.42" width="141.121" height="116.457" filterUnits="userSpaceOnUse">
+        <feOffset input="SourceAlpha" />
+        <feGaussianBlur stdDeviation="2" result="b" />
+        <feFlood flood-opacity="0.102" />
+        <feComposite operator="in" in2="b" />
+        <feComposite in="SourceGraphic" />
+      </filter>
+      <filter id="c" x="21.622" y="0" width="133.642" height="128.93" filterUnits="userSpaceOnUse">
+        <feOffset input="SourceAlpha" />
+        <feGaussianBlur stdDeviation="5" result="d" />
+        <feFlood flood-opacity="0.102" />
+        <feComposite operator="in" in2="d" />
+        <feComposite in="SourceGraphic" />
+      </filter>
+    </defs>
+    <g transform="translate(-744.034 -593.436)" id="leafs">
+      <path d="M863.5,421.5s8.259,5.707,15.234,25.935" transform="translate(156.156 66.187) rotate(16)" fill="none"
+        stroke="#2f811e" stroke-linecap="round" stroke-width="0.4" />
+      <g transform="matrix(1, 0, 0, 1, 744.03, 593.44)" filter="url(#a)">
+        <path
+          d="M902.99,490.315s-43.333-18.667-50.49-50.667,10.49-31.667,10.49-31.667A314.915,314.915,0,0,1,895.5,411c16.5,2.5,69.5,37.5,81,70.5,3.829,10.989,7.49,22.815-7.176,29.815S902.99,490.315,902.99,490.315Z"
+          transform="translate(-844.79 -390.56)" fill="var(--green-3)" />
+      </g>
+      <path d="M863.5,421.5s12.557,3.337,25.522,21.57" transform="translate(355.423 -110.67) rotate(32)" fill="none"
+        stroke="#2c7f1c" stroke-linecap="round" stroke-width="0.4" />
+      <g transform="matrix(1, 0, 0, 1, 744.03, 593.44)" filter="url(#c)">
+        <path
+          d="M906.186,482.446A113.239,113.239,0,0,1,885.911,470c-5.977-4.556-11.973-10.782-16.832-16.173-12.146-13.478-10.038-42.395-5.407-45.119s27.019,5.924,27.019,5.924,30.8,14.016,39.021,25.114c16.177,21.847,23.864,43.4,14.867,49.079S908.19,483.261,906.186,482.446Z"
+          transform="translate(-701.6 -564.26) rotate(12.09)" fill="var(--green-4)" />
+      </g>
+    </g>
+  </svg>
+  <!-- /svg -->
+  <!-- app -->
+  <div class="app">
+    <!-- leafs -->
+    <div class="leafs">
+      <div class="leaf leaf--1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="155.264"
+          height="145.312" viewBox="0 0 155.264 145.312">
+          <use xlink:href="#leafs" />
+        </svg>
+      </div>
+      <div class="leaf leaf--2">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="155.264"
+          height="145.312" viewBox="0 0 155.264 145.312">
+          <use xlink:href="#leafs" />
+        </svg>
+      </div>
+      <div class="leaf leaf--3">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="155.264"
+          height="145.312" viewBox="0 0 155.264 145.312">
+          <use xlink:href="#leafs" />
+        </svg>
+      </div>
+    </div>
+    <!-- /leafs -->
+    <!-- first-screen -->
+    <div class="screen first-screen">
+      <h1 class="heading">Welcome</h1>
+      <p class="description">FRESHWATER PEST AND DISEASE BIOSECURITY GUIDE</p>
+      <button class="btn-circle btn-pTSecond">&rarr;</button>
+    </div>
+    <!-- /first-screen -->
+    <!-- second-screen -->
+    <div class="screen second-screen">
+      <button class="btn-circle btn-pTFirst">&larr;</button>
+      <h1 class="heading">Sign in</h1>
+      <form class="form" action="/login" method="post" enctype=multipart/form-data>
+        <div class="form__field">
+          <input type="input" class="form__input" placeholder="Username" name="Username" required>
+        </div>
+        <div class="form__field">
+          <input type="password" class="form__input" placeholder="Password" name="Passwd" required>
+        </div>
+        <button class="btn-words btn-form" type="submit">Sign in</button>
+        {% if wrongPwd %}
+        <div class="checkbox mb-3" style="color: red;">
+          The Username or Password is incorrect!
+        </div>
+        {% else %}
+        {% endif %}
+      </form>
+      <button class="btn-words btn-register" onclick="register()">register</button>
+    </div>
+    <!-- /second-screen -->
+  </div>
+  <div id="dataTransForSignIn" data-wrongpassword='{{ wrongPwd }}'></div>
+  <script src="../static/js/script.js"></script>
+</body>
+
+</html>

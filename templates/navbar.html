@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block header %}
+<header>
+    <div class="navbar  shadow-lg">
+        <div class="container">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+                <object data="../static/icon.svg" type="image/svg+xml"></object>
+                <strong>Biosecurity Guide</strong>
+            </a>
+
+            <a class="nav-link" href="/">Guide</a>
+            {% if Authority == 0 or Authority == 1 %}
+            <a class="nav-link" href="/user">User</a>
+            {% else %}
+            {% endif %}
+            <a class="nav-link" href="#"></a>
+            <a class="nav-link" href="#"></a>
+            <a class="nav-link" href="#"></a>
+            <a class="nav-link" href="#"></a>
+            <a class="nav-link" href="#"></a>
+            <a class="nav-link" href="#"></a>
+            <a class="nav-link" href="#"></a>
+            <a class="nav-link" href="#"></a>
+            <a class="nav-link" href="#"></a>
+            <a class="nav-link" href="#"></a>
+            <a class="nav-link" href="#"></a>
+
+
+            <div class="dropdown-center">
+                <a class="btn btn-light dropdown-toggle" type="text" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{Username}}
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/user?IdNumber='{{IdNumber}}'">Personal Info</a></li>
+                    <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+
+{% block footer %}
+<footer class="text-muted py-5">
+    <div class="container">
+        <p class="float-end mb-1">
+            <a href="#">Back to top</a>
+        </p>
+        <p class="mb-1">Biosecurity Guide application refers to many public sources on the Internet</p>
+        <p class="mb-0">Want to know more? Check our <a href="#" onclick="activateResourceModal()">List of
+                Sources</a></p>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalFortheReferences" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Sources</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="list-group">
+                        <a href="https://www.mpi.govt.nz/biosecurity/exotic-pests-and-diseases-in-new-zealand/freshwater-pests-and-diseases-in-nz/"
+                            class="list-group-item list-group-item-action">Ministry for Primary Industries,
+                            Biosecurity, Freshwater pests and diseases in NZ</a>
+                        <a href="https://www.doc.govt.nz/nature/pests-and-threats/freshwater-pests/"
+                            class="list-group-item list-group-item-action">Department of Conversation, Pests and
+                            Threats, Fresh Water Pests</a>
+                        <a href="https://www.doc.govt.nz/nature/pests-and-threats/freshwater-pests/other-freshwater-pest-species/"
+                            class="list-group-item list-group-item-action">Department of Conversation, Pests and
+                            Threats, Fresh Water Pests, Other freshwater pest species</a>
+                        <a href="https://www.mpi.govt.nz/biosecurity/pests-and-diseases-not-in-new-zealand/freshwater-pests-and-diseases-not-in-nz/"
+                            class="list-group-item list-group-item-action">Ministry for Primary Industries,
+                            Biosecurity, Pests and diseases not in New Zealand, Freshwater pests and diseases not in
+                            NZ</a>
+                        <a href="https://docs.niwa.co.nz/library/public/NIWAsts49.pdf"
+                            class="list-group-item list-group-item-action">A handbook of diseases of importance to
+                            aquaculture in New Zealand</a>
+                        <a href="https://www.doc.govt.nz/nature/pests-and-threats/freshwater-pests/"
+                            class="list-group-item list-group-item-action">Department of Conversation, Pests and
+                            Threats, Fresh Water Pests</a>
+                        <a href="https://www.doc.govt.nz/nature/pests-and-threats/freshwater-pests/"
+                            class="list-group-item list-group-item-action">Department of Conversation, Pests and
+                            Threats, Fresh Water Pests</a>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}
+
+{% block script %}
+<script src="../static/js/navbar.js" crossorigin="anonymous"></script>
+{% endblock %}

@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.108.0">
+    <title>Album example · Bootstrap v5.3</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+
+
+
+
+
+
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+
+
+</head>
+
+<body class="bg-light">
+
+    <header>
+        <div class="navbar  shadow-lg">
+            <div class="container">
+                <button type="button" class="btn btn-light" onclick="location.href = '/'">Back</button>
+
+
+
+            </div>
+        </div>
+    </header>
+
+    <div class="container" style="max-width: 960px;">
+        <main>
+
+            <div class="py-5 text-center">
+                <h2>ADD Guide</h2>
+                <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required
+                    form
+                    group has a validation state that can be triggered by attempting to submit the form without
+                    completing
+                    it.</p>
+            </div>
+
+            <div class="row g-5 justify-content-center">
+                <div class="col-md-7 col-lg-8">
+                    <form class="needs-validation" novalidate action="/addGuide" method="post"
+                        enctype=multipart/form-data id="addGuideForm">
+                        <div class="row g-3">
+
+
+                            <div class="col-12">
+                                <label for="FreshwaterId" class="form-label">Fresh Water Id</label>
+                                <input type="text" class="form-control" id="FreshwaterId" placeholder=""
+                                    value="" name="FreshwaterId" disabled>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="type" class="form-label">Type</label>
+                                <select class="form-select" id="type" required name="type">
+                                    <option value="Pest">Pest</option>
+                                    <option value="Disease">Disease</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please provide a valid state.
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="present" class="form-label">present in NZ</label>
+                                <select class="form-select" id="present" required name="present">
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please provide a valid state.
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="commonName" class="form-label">Common Name</label>
+                                <input type="text" class="form-control" id="commonName" placeholder="" value="" required
+                                    name="commonName">
+                                <div class="invalid-feedback">
+                                    Valid first name is required.
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="scientificName" class="form-label">Scientific Name</label>
+                                <input type="text" class="form-control" id="scientificName" placeholder="" value=""
+                                    required name="scientificName">
+                                <div class="invalid-feedback">
+                                    Valid last name is required.
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="keyCharacteristics" class="form-label">Key Characteristics</label>
+                                <textarea class="form-control" id="keyCharacteristics" rows="3"
+                                    name="keyCharacteristics"></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="biologyDescription" class="form-label">Biology/Description</label>
+                                <textarea class="form-control" id="biologyDescription" rows="3" value=""
+                                    name="biologyDescription"></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="impacts" class="form-label">Impacts</label>
+                                <textarea class="form-control" id="impacts" rows="3" value="" name="impacts"></textarea>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <div class="row g-3">
+
+
+                            <div class="col-12">
+                                <label for="avatar">Choose primary picture:</label>
+                                <input type="file" id="addPrimary" name="addPrimary" accept="image/png, image/jpeg" />
+                            </div>
+
+                            <div class="col-12">
+                                <label for="avatar">Choose a file to add picture:</label>
+                                <input type="file" multiple="multiple" id="addPics" name="addPics" accept="image/png, image/jpeg" />
+                            </div>
+
+
+                        </div>
+
+                        <hr class="my-4">
+                        
+                        <button type="button" class="w-100 btn btn-primary btn-lg"
+                            onclick="guideAddFormSubmit()">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="addGuideFailedModal" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Submission Failed</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </main>
+    </div>
+
+
+    <script src="../static/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="../static/js/addGuide.js"></script>
+
+
+
+</body>
+
+</html>

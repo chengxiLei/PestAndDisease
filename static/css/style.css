@@ -1,0 +1,405 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+
+/* default */
+/* =============================================================================================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100vh;
+  padding: 2rem;
+
+  font-family: 'Merriweather';
+
+  background: url('bg.jpeg');
+  background-size: cover;
+}
+
+button {
+  border: none;
+
+  color: inherit;
+  background: transparent;
+
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+/* app */
+/* =============================================================================================== */
+.app {
+  --light-1: hsl(114, 31%, 93%);
+  --light-2: hsl(114, 31%, 96%);
+  --green-1: hsl(130, 46%, 38%);
+  --green-2: hsl(130, 50%, 50%);
+  --green-3: hsl(131, 42%, 42%);
+  --green-4: hsl(130, 45%, 45%);
+  --gray-1: hsl(0, 0%, 50%);
+  --gray-2: hsl(0, 0%, 90%);
+  --dark-1: hsl(0, 0%, 8%);
+  --dark-2: hsl(0, 0%, 20%);
+  --gradient-1: linear-gradient(to right bottom, var(--green-2), var(--green-1));
+  --gradient-2: linear-gradient(to right bottom, var(--light-2), var(--light-1));
+
+  width: 22rem;
+  height: 46rem;
+  border-radius: 2rem;
+
+  box-shadow: 0 3rem 4rem .4rem hsla(0, 0%, 0%, .1),
+    0 1.5rem 2.4rem -1rem hsla(0, 0%, 0%, .06),
+    0 0 2.4rem hsla(0, 0%, 0%, .06);
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* leafs */
+/* =============================================================================================== */
+.svg-leafs {
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  visibility: hidden;
+}
+
+.leaf {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+
+  width: 20rem;
+
+  pointer-events: none;
+  transition: .3s;
+}
+
+.leaf--1 {
+  right: -3rem;
+  bottom: -11.5rem;
+  transform: rotate(90deg);
+}
+
+.leaf--2 {
+  right: -2rem;
+  bottom: -8rem;
+  transform: rotate(55deg);
+}
+
+.leaf--3 {
+  right: -.5rem;
+  bottom: -10.5rem;
+  transform: rotate(15deg);
+}
+
+/* Other */
+/* =============================================================================================== */
+.number {
+  width: 100%;
+  margin-bottom: 2rem;
+
+  text-align: right;
+}
+
+.heading {
+  font-size: 2.6rem;
+  letter-spacing: .2rem;
+
+  transition: .4s;
+}
+
+.description {
+  margin-top: 2rem;
+
+  line-height: 2;
+}
+
+/* screen */
+/* =============================================================================================== */
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  padding: 2rem;
+
+  color: var(--light-1);
+  background: transparent;
+}
+
+/* first-screen */
+/* =============================================================================================== */
+.first-screen {
+  align-items: flex-start;
+
+  background: var(--gradient-1);
+}
+
+/* second-screen */
+/* =============================================================================================== */
+.second-screen {
+  color: var(--green-1);
+
+  left: 100%;
+  z-index: 2;
+}
+
+.second-screen .heading {
+  opacity: 0;
+  transform: translate(30px);
+}
+
+/* third-screen */
+/* =============================================================================================== */
+.third-screen {
+  left: 100%;
+  z-index: 3;
+}
+
+.third-screen .heading {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* buttons */
+/* =============================================================================================== */
+/* btn-circle */
+/* ---------------------------------------- */
+.btn-circle {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 100rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* btn-pTSecond */
+/* ---------------------------------------- */
+.btn-pTSecond {
+  margin-top: 2rem;
+  border: 1px solid var(--light-1);
+
+  transform: scale(.8);
+  transform-origin: left center;
+  transition: .3s;
+}
+
+.btn-pTSecond:hover,
+.btn-pTSecond:focus {
+  transform: scale(1);
+}
+
+.btn-pTSecond::before {
+  content: '';
+
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+
+  position: absolute;
+  background: var(--gradient-2);
+
+  transform: scale(0);
+  transition: .6s;
+}
+
+/* btn-pTFirst */
+/* ---------------------------------------- */
+.btn-pTFirst {
+  color: var(--light-1);
+  background: var(--gradient-1);
+
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+/* btn-words */
+/* ---------------------------------------- */
+.btn-words {
+  width: 100%;
+
+  font-size: 1.2rem;
+  transition: all .4s, transform 1s .5s;
+}
+
+/* btn-form */
+/* ---------------------------------------- */
+.btn-form {
+  border-radius: 100rem;
+  margin-top: .4rem;
+  padding: 1rem 0;
+
+  color: var(--gray-1);
+  background: var(--gray-2);
+
+  font-weight: bold;
+
+  z-index: 1;
+}
+
+
+
+/* btn-register */
+/* ---------------------------------------- */
+.btn-register {
+  color: var(--dark-2);
+}
+
+/* form */
+/* =============================================================================================== */
+.form {
+  width: 100%;
+  margin: 4rem 0 2rem;
+
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(2rem);
+}
+
+.form__field {
+  width: 100%;
+  height: auto;
+  margin-bottom: 2.2rem;
+
+  position: relative;
+}
+
+
+
+.form__input {
+  width: 100%;
+  border: none;
+  padding-bottom: .8rem;
+
+  color: var(--dark-1);
+  background: transparent;
+
+  font-size: 1.2rem;
+}
+
+
+/* Styles that will be added via JavaScript */
+/* =============================================================================================== */
+/* second-screen-opened */
+/* ---------------------------------------- */
+.second-screen-opened .leaf {
+  transition: 1s;
+}
+
+.second-screen-opened .leaf--1 {
+  right: -8.8rem;
+  bottom: 78%;
+
+  transform: rotate(5deg);
+}
+
+.second-screen-opened .leaf--2 {
+  right: -8.6rem;
+  bottom: -5rem;
+
+  transform: rotate(80deg);
+}
+
+.second-screen-opened .leaf--3 {
+  right: 11rem;
+  bottom: -4.2rem;
+
+  transform: rotate(180deg);
+}
+
+.second-screen-opened .first-screen .heading {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.second-screen-opened .btn-pTSecond::before {
+  border-radius: 0;
+  transform: scale(22);
+}
+
+.second-screen-opened .second-screen {
+  left: 0;
+}
+
+.second-screen-opened .second-screen .heading {
+  opacity: 1;
+  transform: translate(0);
+  transition: 1s .4s;
+}
+
+.second-screen-opened .second-screen .form {
+  opacity: 1;
+  transform: translateY(0);
+  transition: .7s .1s;
+}
+
+
+/* on-btn-pTSecond */
+/* ---------------------------------------- */
+.on-btn-pTSecond .leaf--1 {
+  right: -3rem;
+  bottom: -8.5rem;
+  transform: rotate(97deg);
+}
+
+.on-btn-pTSecond .leaf--2 {
+  bottom: -5rem;
+  transform: rotate(52deg);
+}
+
+.on-btn-pTSecond .leaf--3 {
+  right: 3rem;
+  bottom: -7.5rem;
+  transform: rotate(5deg);
+}
+
+/* .form-ready */
+/* ---------------------------------------- */
+.form-ready .btn-form {
+  color: var(--light-1);
+  background: var(--green-2);
+}
+
+/* .form-submitted */
+/* ---------------------------------------- */
+.form-submitted .btn-form {
+  width: 3.6rem;
+  transform: translateX(-2rem);
+}
+
+.form-submitted .btn-form::before {
+  transform: scale(1) translateX(-3px);
+}
+
+
+.form-submitted .btn-register {
+  opacity: 0;
+}
